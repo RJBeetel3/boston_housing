@@ -3,8 +3,8 @@
 # Necessary for newer version of matplotlib
 import warnings
 warnings.filterwarnings("ignore", category = UserWarning, module = "matplotlib")
-#
-# Display inline matplotlib plots with IPython
+#	
+# Display inline matplotlib plots with IPython; won't work in terminal
 from IPython import get_ipython
 get_ipython().run_line_magic('matplotlib', 'inline')
 ###########################################
@@ -13,7 +13,10 @@ import matplotlib.pyplot as pl
 import numpy as np
 import sklearn.learning_curve as curves
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.cross_validation import ShuffleSplit, train_test_split
+
+# my current install has these things in sklearn.model_selection 
+from sklearn.model_selection import ShuffleSplit, train_test_split
+#from sklearn.cross_validation import ShuffleSplit, train_test_split
 
 def ModelLearning(X, y):
     """ Calculates the performance of several models with varying sizes of training data.
